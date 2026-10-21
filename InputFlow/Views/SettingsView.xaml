@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="InputFlow.Views.SettingsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ScrollViewer Padding="32">
+        <StackPanel Spacing="24">
+            
+            <TextBlock Text="Settings" Style="{StaticResource Heading2}" />
+
+            <!-- Display Unit -->
+            <Border Background="{StaticResource SurfaceBrush}" CornerRadius="8" Padding="20">
+                <StackPanel Spacing="12">
+                    <TextBlock FontWeight="SemiBold" FontSize="15">Display Unit</TextBlock>
+                    <ComboBox x:Name="UnitSelector" Width="200" Margin="0,4,0,0">
+                        <x:String>cm (centimeters)</x:String>
+                        <x:String>m (meters)</x:String>
+                        <x:String>km (kilometers)</x:String>
+                        <x:String>Auto</x:String>
+                    </ComboBox>
+                </StackPanel>
+            </Border>
+
+            <!-- Theme -->
+            <Border Background="{StaticResource SurfaceBrush}" CornerRadius="8" Padding="20">
+                <StackPanel Spacing="12">
+                    <TextBlock FontWeight="SemiBold" FontSize="15">Theme</TextBlock>
+                    <ComboBox x:Name="ThemeSelector" Width="200" Margin="0,4,0,0">
+                        <x:String>Dark (Default)</x:String>
+                        <x:String>Light</x:String>
+                        <x:String>System Default</x:String>
+                    </ComboBox>
+                </StackPanel>
+            </Border>
+
+            <!-- Animations -->
+            <Border Background="{StaticResource SurfaceBrush}" CornerRadius="8" Padding="20">
+                <StackPanel Spacing="12">
+                    <TextBlock FontWeight="SemiBold" FontSize="15">Animations</TextBlock>
+                    <muxc:ToggleSwitch x:Name="AnimToggle" Header="Enable decorative animations" 
+                                       IsOn="True" Margin="0,4,0,0"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Startup -->
+            <Border Background="{StaticResource SurfaceBrush}" CornerRadius="8" Padding="20">
+                <StackPanel Spacing="12">
+                    <TextBlock FontWeight="SemiBold" FontSize="15">Startup</TextBlock>
+                    <muxc:ToggleSwitch x:Name="StartWithWindowsToggle" 
+                                       Header="Start with Windows (off by default)" IsOn="False" />
+                    <TextBlock TextWrapping="Wrap" Style="{StaticResource BodyTextSecondary}" FontSize="12">
+                        InputFlow does not start automatically. Enable this to launch at sign-in.
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+
+            <!-- Close behavior -->
+            <Border Background="{StaticResource SurfaceBrush}" CornerRadius="8" Padding="20">
+                <StackPanel Spacing="12">
+                    <TextBlock FontWeight="SemiBold" FontSize="15">Close Behavior</TextBlock>
+                    <ComboBox x:Name="CloseBehaviorSelector" Width="240" Margin="0,4,0,0">
+                        <x:String>Quit immediately (default)</x:String>
+                        <x:String>Minimize to system tray</x:String>
+                    </ComboBox>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>

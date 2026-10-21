@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="InputFlow.Views.WelcomeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
+    
+    <Grid Padding="48" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Spacing="28" MaxWidth="620">
+            
+            <!-- Title -->
+            <TextBlock Text="InputFlow" Style="{StaticResource Heading1}" />
+
+            <!-- Subtitle / description -->
+            <TextBlock TextWrapping="Wrap" Style="{StaticResource BodyText}">
+                Track your keyboard activity and cursor movement — privately, locally, without recording what you type.
+            </TextBlock>
+
+            <!-- Toggles -->
+            <Border Background="{StaticResource SurfaceBrush}" CornerRadius="8" Padding="20">
+                <StackPanel Spacing="16">
+                    <muxc:ToggleSwitch 
+                        x:Name="KeyboardToggle"
+                        Header="Track Keyboard Activity"
+                        IsOn="True"
+                        OffContent="" OnContent="" />
+                    
+                    <muxc:ToggleSwitch 
+                        x:Name="PointerToggle"
+                        Header="Track Cursor Movement"
+                        IsOn="True"
+                        OffContent="" OnContent="" />
+                </StackPanel>
+            </Border>
+
+            <!-- Start button -->
+            <Button 
+                Content="Start Tracking" 
+                HorizontalAlignment="Left"
+                Padding="48,14"
+                Foreground="#0B1020"
+                Background="{StaticResource AccentBrush}"
+                CornerRadius="8"
+                Click="OnStartTracking_Click" />
+
+            <!-- Privacy note -->
+            <TextBlock TextWrapping="Wrap" Style="{StaticResource BodyTextSecondary}">
+                InputFlow counts key presses without recording what you type. No characters, passwords, 
+                window titles, or personal data are stored. All data stays on your device.
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>

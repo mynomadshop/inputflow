@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="InputFlow.Views.DashboardView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewmodel="using:InputFlow.Core.ViewModels">
+
+    <ScrollViewer Padding="32" VerticalScrollMode="Enabled">
+        <StackPanel Spacing="24">
+            
+            <!-- Status bar with unit selector and pause/resume -->
+            <Grid ColumnSpacing="16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Status indicator with text + icon (not color alone) -->
+                <TextBlock x:Name="StatusIndicator" 
+                           Text="\u25CF Not Tracking" 
+                           Foreground="{StaticResource StatusStoppedBrush}" 
+                           VerticalAlignment="Center" FontSize="14" FontWeight="SemiBold"
+                           Grid.Column="0" />
+
+                <!-- Unit selector (cm | m | km | Auto) -->
+                <TextBlock x:Name="UnitDisplay" Text="Auto" Grid.Column="1" 
+                           HorizontalAlignment="Center" Foreground="{StaticResource AccentBrush}" 
+                           FontWeight="SemiBold" FontSize="14" />
+
+                <!-- Pause/Resume button -->
+                <Button Content="Pause" Padding="28,10" Grid.Column="2"
+                        Click="OnPauseToggle_Click" x:Name="PauseBtn" />
+            </Grid>
+
+            <!-- ODOMETER — main visual anchor -->
+            <Border Style="{StaticResource ElevatedCardSurface}" HorizontalAlignment="Center">
+                <StackPanel HorizontalAlignment="Center" Spacing="8">
+                    <TextBlock Text="Estimated Cursor Distance" 
+                               Foreground="{StaticResource TextSecondaryBrush}" 
+                               HorizontalAlignment="Center" FontSize="14" />
+                    <TextBlock x:Name="DistanceDisplay" Style="{StaticResource OdometerDisplay}"
+                               Text="0.00 cm" HorizontalAlignment="Center" />
+                </StackPanel>
+            </Border>
+
+            <!-- KEYBOARD COUNTER ROW -->
+            <Grid ColumnSpacing="24">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Key presses total -->
+                <Border Style="{StaticResource CardSurface}" Grid.Column="0">
+                    <StackPanel Spacing="6">
+                        <TextBlock Text="Key Presses Today" Foreground="{StaticResource TextSecondaryBrush}" 
+                                   FontSize="13" />
+                        <TextBlock x:Name="KeyPressDisplay" Text="0" Style="{StaticResource CounterDisplay}" />
+                        <TextBlock x:Name="KeyPressSubtext" Text="" Style="{StaticResource BodyTextSecondary}" 
+                                   FontSize="11" />
+                    </StackPanel>
+                </Border>
+
+                <!-- Last 60 seconds -->
+                <Border Style="{StaticResource CardSurface}" Grid.Column="1">
+                    <StackPanel Spacing="6">
+                        <TextBlock Text="Last 60 Seconds" Foreground="{StaticResource TextSecondaryBrush}" 
+                                   FontSize="13" />
+                        <TextBlock x:Name="Last60SecDisplay" Text="0 / window" Style="{StaticResource CounterDisplay}" 
+                                   Foreground="{StaticResource AccentAltBrush}" />
+                        <TextBlock x:Name="Last60SecSubtext" Text="(partial window)" Style="{StaticResource BodyTextSecondary}" 
+                                   FontSize="11" Visibility="Collapsed" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <!-- REFRESH INDICATOR -->
+            <TextBlock x:Name="RefreshIndicator" Text="Updating every 30 seconds" 
+                       Foreground="{StaticResource TextSecondaryBrush}" FontSize="12"
+                       HorizontalAlignment="Center" />
+
+            <!-- Measurement quality indicator -->
+            <TextBlock x:Name="QualityLabel" Text="Calibrated" 
+                       Foreground="{StaticResource StatusRunningBrush}" FontSize="12"
+                       HorizontalAlignment="Center" Margin="0,4,0,0" />
+        </StackPanel>
+    </ScrollViewer>
+</Page>

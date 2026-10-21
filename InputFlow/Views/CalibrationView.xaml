@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="InputFlow.Views.CalibrationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ScrollViewer Padding="32">
+        <StackPanel Spacing="24">
+            
+            <TextBlock Text="Display Calibration" Style="{StaticResource Heading2}" />
+
+            <Border Background="{StaticResource SurfaceBrush}" CornerRadius="8" Padding="20">
+                <StackPanel Spacing="10">
+                    <TextBlock TextWrapping="Wrap" Style="{StaticResource BodyTextSecondary}">
+                        Calibration converts screen pixels to physical distance. Each display needs its 
+                        physical width and height in centimeters.\n\nMethods: enter your monitor's actual dimensions, 
+                        use the diagonal-plus-aspect-ratio option, or try ruler calibration on each display.
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+
+            <!-- Display list -->
+            <ItemsControl x:Name="DisplayList">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="{StaticResource SurfaceBrush}" CornerRadius="8" Padding="20" Margin="0,4">
+                            <StackPanel Spacing="10">
+                                <TextBlock Text="{Binding DisplayName}" FontWeight="SemiBold" FontSize="15" />
+                                
+                                <!-- Resolution display -->
+                                <TextBlock Text="{Binding Resolution}" Foreground="{StaticResource TextSecondaryBrush}" 
+                                           FontSize="13" />
+
+                                <!-- Physical dimensions input -->
+                                <Grid ColumnSpacing="20">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <TextBlock Text="Width (cm)" Grid.Column="0" VerticalAlignment="Center" 
+                                               Foreground="{StaticResource TextSecondaryBrush}" FontSize="13"/>
+                                    <TextBox x:Name="WidthInput" Grid.Column="1" Width="80" HorizontalAlignment="Right"
+                                             PlaceholderText="Enter width in cm" />
+                                    
+                                    <TextBlock Text="Height (cm)" Grid.Column="2" VerticalAlignment="Center" Margin="20,0,0,0"
+                                               Foreground="{StaticResource TextSecondaryBrush}" FontSize="13"/>
+                                    <TextBox x:Name="HeightInput" Grid.Column="3" Width="80" HorizontalAlignment="Right"
+                                             PlaceholderText="Enter height in cm" />
+                                </Grid>
+
+                                <Button Content="Save" Padding="16,6" HorizontalAlignment="Left" 
+                                        Background="{StaticResource AccentBrush}" Foreground="#0B1020"
+                                        CornerRadius="4" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="InputFlow.Views.PrivacyView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ScrollViewer Padding="32">
+        <StackPanel Spacing="24">
+            
+            <TextBlock Text="Privacy &amp; Data" Style="{StaticResource Heading2}" />
+
+            <!-- What is collected -->
+            <Border Background="{StaticResource SurfaceBrush}" CornerRadius="8" Padding="20">
+                <StackPanel Spacing="12">
+                    <TextBlock FontWeight="SemiBold" FontSize="15">What InputFlow collects</TextBlock>
+                    
+                    <TextBlock TextWrapping="Wrap" Style="{StaticResource BodyTextSecondary}">
+                        Counts key presses without recording what you type.\n\nInputFlow counts initial 
+                        key-down transitions (not characters, words, or typing speed). No individual key 
+                        names, scan codes, typed text, passwords, window titles, clipboard contents, 
+                        screenshots, URLs, or personal identifiers are stored anywhere.
+                    </TextBlock>
+
+                    <TextBlock TextWrapping="Wrap" Style="{StaticResource BodyTextSecondary}">
+                        Estimated cursor distance is calculated from screen pixel movement converted using 
+                        display calibration. No coordinate trails or replayable paths are saved.
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+
+            <!-- Storage protection -->
+            <Border Background="{StaticResource SurfaceBrush}" CornerRadius="8" Padding="20">
+                <StackPanel Spacing="12">
+                    <TextBlock FontWeight="SemiBold" FontSize="15">Storage &amp; Protection</TextBlock>
+                    
+                    <TextBlock TextWrapping="Wrap" Style="{StaticResource BodyTextSecondary}">
+                        All data is stored locally using encrypted SQLite (SQLCipher). Your data is 
+                        protected with per-user encryption derived from Windows DPAPI.\n\nAggregate data 
+                        includes only: key press counts, click counts, scroll event counts, and estimated 
+                        cursor distances. No text output or personal identifiers are stored.
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+
+            <!-- Data Controls -->
+            <Border Background="{StaticResource SurfaceBrush}" CornerRadius="8" Padding="20">
+                <StackPanel Spacing="16">
+                    <TextBlock FontWeight="SemiBold" FontSize="15">Data Controls</TextBlock>
+
+                    <!-- Retention -->
+                    <Grid ColumnSpacing="16">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="30-second buckets retained:" Grid.Column="0" 
+                                   VerticalAlignment="Center" Style="{StaticResource BodyTextSecondary}" />
+                        <TextBox x:Name="RetentionDaysInput" Grid.Column="1" Width="60" Text="7" 
+                                 HorizontalAlignment="Right" Margin="8,0" />
+                        <Button Content="Apply" Padding="12,6" Grid.Column="2"
+                                Background="{StaticResource AccentBrush}" Foreground="#0B1020"
+                                CornerRadius="4"/>
+                    </Grid>
+
+                    <!-- Export -->
+                    <StackPanel Orientation="Horizontal" Spacing="12">
+                        <Button Content="Export Data (JSON)" Padding="24,8" />
+                        <Button Content="Export Summaries (JSON)" Padding="24,8" 
+                                Background="{StaticResource SurfaceElevatedBrush}" />
+                    </StackPanel>
+
+                    <!-- Delete -->
+                    <Button Content="Delete All Data" Padding="24,10"
+                            Foreground="#FF5252" Background="#1C2740" CornerRadius="8" Margin="0,12,0,0" />
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>

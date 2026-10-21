@@ -1,0 +1,35 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- InputFlow Deep Core Palette -->
+    
+    <!-- Backgrounds -->
+    <Color x:Key="AppBackgroundColor">#0B1020</Color>
+    <Color x:Key="AppSurfaceColor">#141D30</Color>
+    <Color x:Key="AppSurfaceElevatedColor">#1C2740</Color>
+    <Color x:Key="AppAccentColor">#38BDF8</Color>       <!-- Cyan -->
+    <Color x:Key="AppAccentAltColor">#A78BFA</Color>   <!-- Violet -->
+    
+    <!-- Text -->
+    <Color x:Key="AppTextColor">#E2E8F0</Color>
+    <Color x:Key="AppTextSecondaryColor">#94A3B8</Color>
+    
+    <!-- Status colors -->
+    <Color x:Key="StatusRunningColor">#4ADE80</Color>   <!-- Green -->
+    <Color x:Key="StatusPausedColor">#FBBF24</Color>    <!-- Yellow -->
+    <Color x:Key="StatusStoppedColor">#FF5252</Color>   <!-- Red -->
+
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="BackgroundBrush" Color="#0B1020" />
+    <SolidColorBrush x:Key="SurfaceBrush" Color="#141D30" />
+    <SolidColorBrush x:Key="SurfaceElevatedBrush" Color="#1C2740" />
+    <SolidColorBrush x:Key="AccentBrush" Color="#38BDF8" />
+    <SolidColorBrush x:Key="AccentAltBrush" Color="#A78BFA" />
+    <SolidColorBrush x:Key="TextBrush" Color="#E2E8F0" />
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="#94A3B8" />
+    <SolidColorBrush x:Key="StatusRunningBrush" Color="#4ADE80" />
+    <SolidColorBrush x:Key="StatusPausedBrush" Color="#FBBF24" />
+    <SolidColorBrush x:Key="StatusStoppedBrush" Color="#FF5252" />
+
+</ResourceDictionary>

@@ -1,0 +1,34 @@
+# InputFlow — Git Ignore
+
+## Build outputs
+bin/
+obj/
+*.user
+*.suo
+*.cache
+
+## IDE
+.vs/
+.vscode/
+*.sln.user
+
+## OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+## Debug / Diagnostics
+*.log
+serilog-.json
+*.tmp
+*.temp
+
+## Publish outputs
+dist/
+
+## Local app data (database, calibrations)
+!InputFlow/**/data.db   # Track database for debugging; delete before release
+InputFlow.Shared/data.db
+InputFlow.Core/data.db
+
+# .editorconfig and project files are tracked

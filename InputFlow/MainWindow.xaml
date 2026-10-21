@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window:Window
+    x:Class="InputFlow.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:window="using:Microsoft.UI.Xaml.Window"
+    Width="960" Height="680"
+    MinWidth="720" MinHeight="520"
+    Title="InputFlow">
+    <Grid x:Name="RootGrid">
+        <NavigationView
+            x:Name="NavView"
+            IsBackButtonVisible="Collapsed"
+            IsPaneToggleVisible="True"
+            PaneDisplayMode="Left">
+            
+            <NavigationView.MenuItems>
+                <NavigationViewItem Content="Dashboard" Tag="dashboard" Icon="Home" />
+                <NavigationViewItem Content="History" Tag="history" Icon="Clock" />
+                <NavigationViewItem Content="Calibration" Tag="calibration" Icon="Screen" />
+                <NavigationViewItem Content="Privacy &amp; Data" Tag="privacy" Icon="ProtectedContent" />
+                <NavigationViewItem Content="Settings" Tag="settings" Icon="Setting" />
+            </NavigationView.MenuItems>
+
+            <Frame x:Name="ContentFrame">
+                <!-- Pages are navigated to programmatically -->
+            </Frame>
+        </NavigationView>
+    </Grid>
+</window:Window>
